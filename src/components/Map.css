@@ -9,6 +9,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: flex-end;
+    flex-direction: row;
     width: 100%;
     position: absolute;
     z-index: 999;

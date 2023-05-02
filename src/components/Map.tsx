@@ -1,4 +1,4 @@
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, Marker,TileLayer, useMap } from "react-leaflet";
 import "../App.css";
 import { Alert, Button, List, Snackbar } from "@mui/material";
 import "./Map.css";
@@ -63,6 +63,15 @@ export default function MapComponent() {
   const closeSuccess = () => {
     setSuccessAlert(false);
   };
+  const saveJson=()=>{
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(locations));
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href",     dataStr);
+    downloadAnchorNode.setAttribute("download", "GLOC" + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+  }
   return (
     <div>
       <div className="top-container-left">
@@ -82,6 +91,9 @@ export default function MapComponent() {
       <div className="top-container-right">
         <Button variant="contained" onClick={saveTheMap.bind({})}>
           Save
+        </Button>
+        <Button variant="contained" onClick={saveJson.bind({})} style={{marginLeft:10}}>
+          Dowload
         </Button>
       </div>
       <MapContainer
