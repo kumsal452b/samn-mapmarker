@@ -1,0 +1,24 @@
+.top-container-left{
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    z-index: 999;
+    margin-top: 100px;
+}
+.top-container-right{
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    margin-top: 100px;
+    right: 0;
+    top: 0;
+    align-self: flex-end;
+}
+
+.list-items{
+    height: 500px;
+    overflow: auto;
+}
